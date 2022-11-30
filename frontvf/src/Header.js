@@ -1,4 +1,5 @@
-function Header() {
+function Header({digitar}) {
+
   return (
     <header>
  <div>
@@ -20,7 +21,7 @@ function Header() {
 
       <form className="ms-auto me-auto">
         <div className="input-group">
-          <input className="form-control rounded-pill" style={{zIndex: 1}}></input>
+          <input onChange={digitar} className="form-control rounded-pill" style={{zIndex: 1}}></input>
 
           <button className="input-group-addon btn btn-primary border border-danger me-1 float rounded-pill" style={{position: "relative" , right: "50px" , zIndex: 1}}>
             <img  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAUJJREFUSEu9le0xBEEURc9GQAhEgAzIgAjIABmQARmQgQwQARnYEIiAOlWv1avR3TO7NWOq9sdOd9/z+r6PWbHws1pYnx5gD7gEjoHDCOQdeAHugfWU4FqAuxDvabjnegxSAxjlQRx8BBTynY83uQLO042OepAhoET+FdYU4aGGIK3aCbuEVp8M0POP2GVULfEiJOQt/uy3cpIBJXoT2IxoEOZD2NU8kwHF+ynRD2/h2WouMuA7Tm3aG91zcwEsit1aluey6DWq7g/jX5O8bZlqjyVbHR2tRvsETjq9oOBz+H4L3ExptLInjwrr3BrPo8IBeJEEXTMYg+rmIC+ODTttcc9pzK0mZGxc29GOa4efogr5U1zPLU1nkutVyKZNVXOhC5kDIDRDzoCnEslcgALRzl9xX84JGP0e9D5MW68tfoMfCXxMGRHr0pcAAAAASUVORK5CYII=" />

@@ -12,13 +12,15 @@ function App() {
   });
   const [noticias, setnoticias] = useState([]);
   const [val, setval] = useState();
-  const [teste, setteste] = useState(true);
+  const [search, setsearch] = useState({searchf : ""});
 
   const atualizarCampos = (e) => {
     const { name, value } = e.target;
     setobjNo({ ...objNo, [name]: value });
   };
-
+  useEffect(() => {
+    console.log(search)
+  },[search])
   const validacao = () => {
     switch (val) {
       case true:
@@ -95,8 +97,13 @@ function App() {
   }, []);
 
   const digitarTeclado = (x) => {
-    const { name, value } = x.target;
-    setobjNo({ ...objNo, [name]: value });
+    
+
+    const { value } = x.target;
+    const valueLC = value.toLowerCase();
+    setsearch({ ...search,  searchf: valueLC});
+
+    
   };
 
   return (
@@ -106,8 +113,8 @@ function App() {
           path="/"
           element={
             <>
-              <Header />
-              <Home noticias={noticias} />
+              <Header  digitar={digitarTeclado}/>
+              <Home noticias={noticias} teste={search} />
             </>
           }
         ></Route>
@@ -115,7 +122,7 @@ function App() {
           path="/cadastrarNoticia"
           element={
             <>
-              <Header />
+              <Header digitar={digitarTeclado}/>
               <CadastrarNoticia
                 atualizarCampos={atualizarCampos}
                 cadastrarNoticia={cadastrarNoticia}
