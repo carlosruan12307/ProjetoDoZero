@@ -106,8 +106,8 @@ function AlterarNoticia({ noticias }) {
 <div>
   {
     val !== false?
-    <form className="p-3 formulario">
-      <h2 className="w-25 mb-5">Alterar Noticia</h2>
+    <form className="p-3 formulario bg-gradient">
+      <h2 className="w-25 mb-5 text-light">Alterar Noticia</h2>
 
       <div className="mb-3 ">
         <label>Titulo Da Noticia</label>

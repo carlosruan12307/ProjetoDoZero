@@ -49,8 +49,8 @@
 }
 
 body {
-  /* background-image: url("./assets/fundo.jpg"); */
-  /* background-position: 30% 9%; */
+  background-image: url("./assets/fundo.jpg");
+  background-position: 30% 9%;
 }
 
 .inputNoticia {
@@ -62,10 +62,22 @@ body {
 }
 
 .cardzinho {
-  box-shadow: 1px 1px 5px black;
+  box-shadow: 1px 1px 5px rgb(red, green, blue);
+
   transition: box-shadow 100ms;
 }
 
 .cardzinho:hover {
   box-shadow: inherit;
+  animation: testezz 1s alternate infinite;
+
+ 
+}
+@keyframes testezz {
+ from {
+  transform: rotateZ(-1deg);
+ }
+ to{
+  transform: rotateZ(1deg);
+ }
 }

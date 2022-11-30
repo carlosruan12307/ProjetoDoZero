@@ -71,8 +71,8 @@ function CadastrarNoticia() {
   };
 
   return (
-    <form className="p-3 formulario">
-      <h2 className="w-25 mb-5">Cadastro De Noticias</h2>
+    <form className="p-3 formulario bg-gradient">
+      <h2 className="w-25 mb-5 text-light">Cadastro De Noticias</h2>
 
       <div className="form-floating mb-3 inputNoticia">
         <input

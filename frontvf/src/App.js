@@ -58,10 +58,11 @@ function App() {
               <Header digitar={digitar} />
               <CadastrarNoticia
           
-      
+
       
          
               />
+                    <Footer/> 
             </>
           }
         ></Route>
@@ -74,6 +75,7 @@ function App() {
          
                 noticias={noticias}
              />
+                   <Footer/>
           </>
         }>
         
