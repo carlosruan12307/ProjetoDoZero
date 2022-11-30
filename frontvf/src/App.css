@@ -1,87 +1,71 @@
-@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nerko+One&display=swap");
 
-.Logo{
-    font-family: 'Nerko One',cursive;
-   font-size: xx-large;
-margin-left: 10%;
-
-
-
+.Logo {
+  font-family: "Nerko One", cursive;
+  font-size: xx-large;
+  margin-left: 10%;
 }
-.Logo:hover{
-    animation: teste 1s alternate infinite;
-    cursor: pointer;
+.Logo:hover {
+  animation: teste 1s alternate infinite;
+  cursor: pointer;
 }
 
-.Link{
-    font-family: 'Nerko One',cursive;
-    font-size: larger;
-    box-shadow: 1px 1px 3px  black;
-    transition: box-shadow 600ms;
+.Link {
+  font-family: "Nerko One", cursive;
+  font-size: larger;
+  box-shadow: 1px 1px 3px black;
+  transition: box-shadow 600ms;
 }
 
-.Link:hover{
-    box-shadow: inherit;
+.Link:hover {
+  box-shadow: inherit;
 }
-.formulario{
-    box-shadow: 0px 0px 5px  lightgrey;
-    height: 400px;
-    margin: 3% 1% 0% 9%;
-    white-space: nowrap;
-  }
+.formulario {
+  box-shadow: 0px 0px 5px lightgrey;
+  height: 400px;
+  margin: 3% 1% 0% 9%;
+  white-space: nowrap;
+}
 @keyframes teste {
-    100%{
-        transform: rotateY(3.142rad);
-      }
+  100% {
+    transform: rotateY(3.142rad);
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .Link {
+    display: none;
   }
 
-  @media only screen and (max-width: 650px) {
-    .Link{
-        display: none;
-    }
-
-    .formulario{
-        margin-right: 3% !important;
-    }
-
-   
-
+  .formulario {
+    margin-right: 3% !important;
   }
+}
 
-  @media only screen and (max-width: 1093px) and (min-width: 800px) {
-    
+@media only screen and (max-width: 1093px) and (min-width: 800px) {
+}
 
-   
-    
-  }
+@media only screen and (max-width: 1050px) and (min-width: 900px) {
+}
 
-  @media only screen and (max-width: 1050px) and (min-width: 900px) {
-    
+body {
+  /* background-image: url("./assets/fundo.jpg"); */
+  /* background-position: 30% 9%; */
+}
 
-    
-  }
-  
+.inputNoticia {
+  box-shadow: 0px 0px 5px lightgrey;
+}
 
-  body{
-    /* background-image: url("./assets/fundo.jpg"); */
-    /* background-position: 30% 9%; */
-  }
+.navbarzinha {
+  box-shadow: 0px 0px 5px lightgrey;
+}
 
-  .inputNoticia{
-    box-shadow: 0px 0px 5px  lightgrey;
-  }
+.cardzinho {
+  box-shadow: 1px 1px 5px black;
+  transition: box-shadow 100ms;
+}
 
-
- 
-  .navbarzinha{
-    box-shadow: 0px 0px 5px  lightgrey;
-  }
-
-  .cardzinho{
-    box-shadow: 1px 1px 5px  black;
-    transition: box-shadow 100ms;
-  }
-
-  .cardzinho:hover{
-    box-shadow: inherit;
-  }
+.cardzinho:hover {
+  box-shadow: inherit;
+}

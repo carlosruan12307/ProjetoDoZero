@@ -5,78 +5,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./Header";
 import CadastrarNoticia from "./CadastrarNoticia";
 import Home from "./Home";
+import AlterarNoticia from "./AlterarNoticia";
 function App() {
-  const [objNo, setobjNo] = useState({
-    tituloNoticia: "",
-    conteudoNoticia: "",
-  });
+  const [search, setsearch] = useState({ searchf: "" });
   const [noticias, setnoticias] = useState([]);
-  const [val, setval] = useState();
-  const [search, setsearch] = useState({searchf : ""});
 
-  const atualizarCampos = (e) => {
-    const { name, value } = e.target;
-    setobjNo({ ...objNo, [name]: value });
-  };
-  useEffect(() => {
-    console.log(search)
-  },[search])
-  const validacao = () => {
-    switch (val) {
-      case true:
-        return (
-          <div className="fade show mt-2 alert alert-success alert-dismissible">
-            <h6>Noticia Cadastrada Com Sucesso</h6>
-          </div>
-        );
-        break;
-      case false:
-        return (
-          <div
-            id="teste"
-            className={"fade show mt-2 alert alert-danger alert-dismissible"}
-          >
-            <h6>Campos Incorretos</h6>
-          </div>
-        );
 
-        break;
-
-      default:
-        <div></div>;
-        break;
-    }
-  };
-  const cadastrarNoticia = (x) => {
-    x.preventDefault();
-    fetch("http://localhost:8080/cadastrarNoticia", {
-      method: "post",
-      body: JSON.stringify(objNo),
-      headers: {
-        "Content-type": "application/json",
-        Accept: "application/json",
-      },
-    })
-      .then((res) => {
-        try {
-          if (res.ok) {
-            setval(true);
-            return res.json();
-          } else {
-            throw new Error(res);
-          }
-        } catch (err) {
-          console.log(err.message);
-        }
-      })
-      .then((resJson) => {
-        if (resJson.mensagem !== undefined) {
-        } else {
-          setval(true);
-        }
-      })
-      .catch((err) => setval(false));
-  };
   useEffect(() => {
     fetch("http://localhost:8080/listarNoticias")
       .then((res) => {
@@ -96,14 +30,11 @@ function App() {
       .catch((err) => console.log(err));
   }, []);
 
-  const digitarTeclado = (x) => {
-    
 
+  const digitar = (x) => {
     const { value } = x.target;
     const valueLC = value.toLowerCase();
-    setsearch({ ...search,  searchf: valueLC});
-
-    
+    setsearch({ ...search, searchf: valueLC });
   };
 
   return (
@@ -113,7 +44,7 @@ function App() {
           path="/"
           element={
             <>
-              <Header  digitar={digitarTeclado}/>
+              <Header  digitar={digitar} />
               <Home noticias={noticias} teste={search} />
             </>
           }
@@ -122,16 +53,30 @@ function App() {
           path="/cadastrarNoticia"
           element={
             <>
-              <Header digitar={digitarTeclado}/>
+              <Header digitar={digitar} />
               <CadastrarNoticia
-                atualizarCampos={atualizarCampos}
-                cadastrarNoticia={cadastrarNoticia}
-                val={val}
-                validacao={validacao}
+          
+      
+      
+         
               />
             </>
           }
         ></Route>
+        <Route path="/alterarNoticia/:id"
+        element={
+          <>
+          <Header digitar={digitar}/>
+          <AlterarNoticia   
+             
+         
+                noticias={noticias}
+             />
+          </>
+        }>
+        
+          
+        </Route>
       </Routes>
     </Router>
   );
