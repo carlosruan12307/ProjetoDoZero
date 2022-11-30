@@ -6,6 +6,7 @@ import Header from "./Header";
 import CadastrarNoticia from "./CadastrarNoticia";
 import Home from "./Home";
 import AlterarNoticia from "./AlterarNoticia";
+import Footer from "./Footer";
 function App() {
   const [search, setsearch] = useState({ searchf: "" });
   const [noticias, setnoticias] = useState([]);
@@ -46,6 +47,7 @@ function App() {
             <>
               <Header  digitar={digitar} />
               <Home noticias={noticias} teste={search} />
+              <Footer/>
             </>
           }
         ></Route>
@@ -77,6 +79,7 @@ function App() {
         
           
         </Route>
+        
       </Routes>
     </Router>
   );

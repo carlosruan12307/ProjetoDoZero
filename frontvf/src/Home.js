@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Home({ noticias, teste }) {
   return (
     <div className="container-fluid ">
@@ -15,10 +17,10 @@ function Home({ noticias, teste }) {
             )
             .map((post, index) => {
               return (
-                <div
-                  className="card flex-wrap cardzinho  col-10 col-md-5 col-sm-5 col-lg-5 ms-4 mb-4 mt-5 me-4"
-                  style={{ height: "380px" }}
-                >
+            
+              
+              
+                           <Link to={'/alterarNoticia/' + post.idNoticia} className="card flex-wrap cardzinho  col-10 col-md-5 col-sm-5 col-lg-5 ms-4 mb-5 mt-4 me-4" style={{ textDecoration: 'none', height: "380px" }}>
                   <div className="card-header">
                     <h1 className="card-title">{post.tituloNoticia}</h1>
                     <h6 className="card-subtitle">{post.conteudoNoticia}</h6>
@@ -34,12 +36,17 @@ function Home({ noticias, teste }) {
                       Acessar
                     </a>
                   </div>
-                </div>
+                  </Link>
+             
+           
               );
             })
         )}
+
       </div>
+        
     </div>
+
   );
 }
 

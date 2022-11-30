@@ -1,10 +1,12 @@
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 function CadastrarNoticia() {
+  const navigate = useNavigate();
   const [objNo, setobjNo] = useState({
     tituloNoticia: "",
     conteudoNoticia: "",
   });
+
 
   const [val, setval] = useState();
   const atualizarCampos = (e) => {
@@ -93,9 +95,9 @@ function CadastrarNoticia() {
         <label htmlfor="conteudofloat">Conteudo Da Noticia</label>
       </div>
       <div className="container-fluid mt-5 d-flex flex-wrap justify-content-end">
-        <button type="button" className=" btn btn-outline-primary">
+        <a onClick={() => navigate(-1)} type="button" className=" btn btn-outline-primary">
           Voltar
-        </button>
+        </a>
         <button
           type="button"
           onClick={cadastrarNoticia}

@@ -8,7 +8,8 @@ function Header({digitar}) {
     <header>
       <div>
         <nav className="navbar navbar-expand navbarzinha">
-          <h4 className="text-primary Logo  p-3 ">LOGO</h4>
+       
+          <a href="/" className="text-primary Logo  p-3 " style={{textDecoration: "none"}}>LOGO</a>
 
           <div className="navbar-nav  ms-auto" style={{ width: "50%" }}>
             <li className="nav-item ms-auto">

@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 function AlterarNoticia({ noticias }) {
   const [objAlterado, setobjAlterado] = useState({});
-  const [valorT, setvalorT] = useState("");
-  const [valorC, setvalorC] = useState("");
+  const[val,setval] = useState("")
+
   const idN = useParams().id;
 
   useEffect(() => {
@@ -18,7 +18,32 @@ function AlterarNoticia({ noticias }) {
         .map((e) => e.conteudoNoticia)[0],
     });
   }, [noticias]);
+  const validacao = () => {
+    switch (val) {
+      case true:
+        return (
+          <div className="fade show mt-2 alert alert-success alert-dismissible">
+            <h6>Noticia Alterada Com Sucesso</h6>
+          </div>
+        );
+        break;
+      case false:
+        return (
+          <div
+            id="teste"
+            className={"fade show mt-2 alert alert-success alert-dismissible"}
+          >
+            <h6 className="text-center">Noticia Excluida Com Sucesso</h6>
+          </div>
+        );
 
+        break;
+
+      default:
+        <div></div>;
+        break;
+    }
+  };
   const excluirNoticia = (e) => {
     fetch("http://localhost:8080/deletarNoticia/" + idN, {
       method: "delete",
@@ -30,6 +55,7 @@ function AlterarNoticia({ noticias }) {
       .then((res) => {
         try {
           if (res.ok) {
+          setval(false)
             return res.json();
           } else {
             throw new Error(res);
@@ -40,6 +66,7 @@ function AlterarNoticia({ noticias }) {
       })
       .then((resJson) => {
         if (resJson.mensagem !== undefined) {
+        
         }
       })
       .catch((err) => err);
@@ -56,6 +83,7 @@ function AlterarNoticia({ noticias }) {
       .then((res) => {
         try {
           if (res.ok) {
+            setval(true)
             return res.json();
           } else {
             throw new Error(res);
@@ -75,6 +103,9 @@ function AlterarNoticia({ noticias }) {
     setobjAlterado({ ...objAlterado, [name]: value });
   };
   return (
+<div>
+  {
+    val !== false?
     <form className="p-3 formulario">
       <h2 className="w-25 mb-5">Alterar Noticia</h2>
 
@@ -99,6 +130,8 @@ function AlterarNoticia({ noticias }) {
           name="conteudoNoticia"
         />
       </div>
+     
+      
       <div className="container-fluid mt-5 d-flex flex-wrap justify-content-end">
         <button
           onClick={excluirNoticia}
@@ -111,7 +144,13 @@ function AlterarNoticia({ noticias }) {
           Alterar
         </button>
       </div>
+      {validacao()}
     </form>
+    :
+    validacao()
+    }
+     
+    </div>
   );
 }
 
